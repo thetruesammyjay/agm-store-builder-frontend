@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* AGM Primary Blue - Trust & Professionalism */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary: var(--color-primary-500);
+  --color-primary-foreground: #ffffff;
+  
+  /* AGM Accent Yellow - Energy & Optimism */
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+  --color-accent-600: #ca8a04;
+  --color-accent-700: #a16207;
+  --color-accent-800: #854d0e;
+  --color-accent-900: #713f12;
+  --color-accent: var(--color-accent-500);
+  --color-accent-foreground: #713f12;
+  
+  /* AGM Danger Red - Urgency & Errors */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+  --color-danger: var(--color-danger-500);
+  --color-danger-foreground: #ffffff;
+  
+  /* Gray Scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Green for success states */
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-600: #16a34a;
+  
+  /* Base Application Colors */
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  
+  /* Card */
+  --color-card: #ffffff;
+  --color-card-foreground: #111827;
+  
+  /* Muted */
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b7280;
+  
+  /* Border & Input */
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #3b82f6;
+  
+  /* Destructive (maps to danger) */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  
+  /* Secondary */
+  --color-secondary: #f3f4f6;
+  --color-secondary-foreground: #111827;
+  
+  /* Popover */
+  --color-popover: #ffffff;
+  --color-popover-foreground: #111827;
+  
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Sidebar (for shadcn components) */
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #111827;
+  --color-sidebar-primary: #3b82f6;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #f3f4f6;
+  --color-sidebar-accent-foreground: #111827;
+  --color-sidebar-border: #e5e7eb;
+  --color-sidebar-ring: #3b82f6;
+  
+  /* Charts */
+  --color-chart-1: #3b82f6;
+  --color-chart-2: #eab308;
+  --color-chart-3: #ef4444;
+  --color-chart-4: #10b981;
+  --color-chart-5: #8b5cf6;
+
+  /* Custom Animation for Landing Page Icons */
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #111827;
+    --color-foreground: #f9fafb;
+    --color-card: #1f2937;
+    --color-card-foreground: #f9fafb;
+    --color-muted: #374151;
+    --color-muted-foreground: #9ca3af;
+    --color-border: #374151;
+    --color-input: #374151;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+  }
+  
+  /* Links */
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* SVG Grid Pattern for Landing Page Background */
+  .bg-grid-slate-100 {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23f1f5f9'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+}
+
+/* Hide Next.js development overlay */
+#__next-build-watcher {
+  display: none !important;
+}
