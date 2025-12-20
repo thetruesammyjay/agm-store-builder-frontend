@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
   const form = useForm<z.infer<typeof resetPasswordSchema>>({
     resolver: zodResolver(resetPasswordSchema),
     defaultValues: {
-      password: "",
+      newPassword: "",
       confirmPassword: "",
     },
   });
@@ -49,7 +49,7 @@ export default function ResetPasswordPage() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
-            name="password"
+            name="newPassword"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>New Password</FormLabel>
