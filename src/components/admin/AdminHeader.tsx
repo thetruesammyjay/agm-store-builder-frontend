@@ -22,7 +22,7 @@ export function AdminHeader() {
         
         <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold border border-primary-200">
-                {user?.data?.fullName?.[0] || "A"}
+                {user?.fullName?.[0] || "A"}
             </div>
         </div>
       </div>
