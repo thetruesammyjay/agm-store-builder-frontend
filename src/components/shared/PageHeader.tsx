@@ -1,0 +1,20 @@
+import { cn } from "@/lib/utils";
+
+interface PageHeaderProps {
+  heading: string;
+  description?: string;
+  children?: React.ReactNode; // For actions buttons
+  className?: string;
+}
+
+export function PageHeader({ heading, description, children, className }: PageHeaderProps) {
+  return (
+    <div className={cn("flex flex-col gap-4 pb-8 md:flex-row md:items-center md:justify-between", className)}>
+      <div className="space-y-1.5">
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{heading}</h1>
+        {description && <p className="text-sm text-muted-foreground">{description}</p>}
+      </div>
+      {children && <div className="flex items-center gap-2">{children}</div>}
+    </div>
+  );
+}
